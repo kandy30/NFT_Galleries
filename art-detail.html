@@ -1,151 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
 </head>
+
 <body>
     <div class="text-white bg-dark">
-      <nav class="navbar navbar-expand-lg bg-dark sticky-top navbar-light p-3 shadow-sm sticky-top">
-        <div class="container">
-          <a class="navbar-brand text-white" href="#"> <img style="width: 45px;" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ4BGzh7jTMBBclz-6XnR3Zhz5ZxeJ2ljT7n-r-mbxRGSU4ShKl" alt=""> <strong>Rarible</strong></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg bg-dark sticky-top navbar-light p-3 shadow-sm sticky-top">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#"> <img style="width: 45px;" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ4BGzh7jTMBBclz-6XnR3Zhz5ZxeJ2ljT7n-r-mbxRGSU4ShKl" alt=""> <strong>Rarible</strong></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-      
-          <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
-            <div class="input-group">
-              <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" class="form-control border-warning" style="color:#7a7a7a">
-              <button class="btn btn-warning text-white">Search</button>
-            </div>
-          </div>
-          <div class=" collapse navbar-collapse" id="navbarNavDropdown">
-            <div class="ms-auto d-none d-lg-block">
-              <div class="input-group">
-                <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <input type="text" class="form-control border-warning" style="color:#7a7a7a">
-                <button class="btn btn-warning text-white">Search</button>
-              </div>
-            </div>
-            <ul class="navbar-nav ">
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase active text-white" aria-current="page" href="#">Explore</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase text-white" href="#">Sell</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase text-white" href="#">Drops</a>
-              </li>
-             
-            </ul>
-            <ul class="navbar-nav ms-auto ">
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
 
-<!-- ************************************************************* -->
-      <div class="container">
-        
-        <div class="row mt-5">
-          <div class="col-8">
-            <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_big/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbVpDcFZ0eFVtNVgyOVg5alBNUXNiNFFFUHpnQnNjcDhocHFaSDZXclNDaVRm" alt="">
-            
-            <ul class="nav nav-tabs mt-4">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Overview</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Properties</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Bids</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Activity</a>
-                </li>
-              </ul>
-
-              <div class="mt-3">
-              <h3>Bids</h3>
-              <span>No bids yet. Be the first to place a bid!</span>
-            </div>
-
-            <div class="mt-4">
-                <h3>Royalties</h3>
-                <span>Split royalties are automatically deposited into each recipient's wallet</span>
-            </div>
-
-            <div class="card mt-4 rounded-pistartll" style="width: auto;">
-                <div class="card-body">
-                  <img class="rounded-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSIgaWQ9Ijc3OTAzNzQ0ODY0MiI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYigyNTUsIDExNSwgMCkiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiKDAsIDI1NSwgMTE1KSIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9InVybCgjNzc5MDM3NDQ4NjQyKSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIj48L3JlY3Q+CiAgPC9nPgo8L3N2Zz4=" alt="">
-                  kjaowijnkn.....jioef
-                  
-                  <!-- <p class="card-text text-center mt-2">Last sale price 29.99 ETH</p>
-                  <button class="btn btn-light" style="width: 23rem;">Place a bid</button> -->
+                <div class="mx-auto my-3 d-lg-none d-sm-block d-xs-block">
+                    <div class="input-group">
+                        <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" class="form-control border-warning" style="color:#7a7a7a">
+                        <button class="btn btn-warning text-white">Search</button>
+                    </div>
                 </div>
-              </div>
+                <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="ms-auto d-none d-lg-block">
+                        <div class="input-group">
+                            <span class="border-warning input-group-text bg-warning text-white"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-control border-warning" style="color:#7a7a7a">
+                            <button class="btn btn-warning text-white">Search</button>
+                        </div>
+                    </div>
+                    <ul class="navbar-nav ">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-uppercase active text-white" aria-current="page" href="#">Explore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-uppercase text-white" href="#">Sell</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-uppercase text-white" href="#">Drops</a>
+                        </li>
 
-            <div class="mt-4">
-                <h3>Details</h3>
+                    </ul>
+                    <ul class="navbar-nav ms-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-cart-shopping me-1"></i> Cart</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 text-uppercase" href="#"><i class="fa-solid fa-circle-user me-1"></i> Account</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </nav>
 
-            <div class="card mt-4 rounded-pistartll" style="width: auto;">
-                <div class="card-body">
-                    <!-- <h5 class="card-title">Card title</h5> -->
-                    <h6 class="card-subtitle mb-2 text-muted">Ethereum (ERC-721)</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">View on Ethersan</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">Open original</h6>
+        <!-- ************************************************************* -->
+        <div class="container">
+
+            <div class="row mt-5">
+                <div class="col-8">
+                    <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_big/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbVpDcFZ0eFVtNVgyOVg5alBNUXNiNFFFUHpnQnNjcDhocHFaSDZXclNDaVRm" alt="">
+
+                    <ul class="nav nav-tabs mt-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Properties</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Bids</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Activity</a>
+                        </li>
+                    </ul>
+
+                    <div class="mt-3">
+                        <h3>Bids</h3>
+                        <span>No bids yet. Be the first to place a bid!</span>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Royalties</h3>
+                        <span>Split royalties are automatically deposited into each recipient's wallet</span>
+                    </div>
+
+                    <div class="card mt-4 rounded-pistartll" style="width: auto;">
+                        <div class="card-body">
+                            <img class="rounded-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSIgaWQ9Ijc3OTAzNzQ0ODY0MiI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYigyNTUsIDExNSwgMCkiIG9mZnNldD0iMCUiPjwvc3RvcD4KICAgICAgPHN0b3Agc3RvcC1jb2xvcj0icmdiKDAsIDI1NSwgMTE1KSIgb2Zmc2V0PSIxMDAlIj48L3N0b3A+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUiIGZpbGw9InVybCgjNzc5MDM3NDQ4NjQyKSIgeD0iMCIgeT0iMCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIj48L3JlY3Q+CiAgPC9nPgo8L3N2Zz4="
+                                alt=""> kjaowijnkn.....jioef
+
+                            <!-- <p class="card-text text-center mt-2">Last sale price 29.99 ETH</p>
+                  <button class="btn btn-light" style="width: 23rem;">Place a bid</button> -->
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Details</h3>
+                    </div>
+
+                    <div class="card mt-4 rounded-pistartll" style="width: auto;">
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Card title</h5> -->
+                            <h6 class="card-subtitle mb-2 text-muted">Ethereum (ERC-721)</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">View on Ethersan</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Open original</h6>
+                            <hr>
+                            <h6 class="card-subtitle mb-2 text-muted">Refresh Metadata</h6>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ************************************************************* -->
+                <div class="col-4">
+                    <span>Bored Ape Yatch Club</span>
+                    <h2>BoredApeYachtClub #4312</h2>
+                    <span>Royalties</span>
+
+                    <div class="mt-4 mb-5">
+                        <img class="rounded-circle" style="width: 45px;" src="https://assets.raribleuserdata.com/prod/v1/image/t_avatar_big/aHR0cHM6Ly9pcGZzLmlvL2lwZnMvUW1hUkNra0U5dmFGN3NlRlNVREJrSjJMU2tMTG95TW9QMkY4cXQ1NHVyUFZRNg==" alt="">
+                        <span>   Neon Bear</span>
+                        <img class="rounded-circle" style="width: 45px; margin-left: 65px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSIgaWQ9IjEyNTg5MDgxMzkyNDciPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2IoMTQ1LCAyNTUsIDApIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYigwLCAxNDUsIDI1NSkiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiBmaWxsPSJ1cmwoIzEyNTg5MDgxMzkyNDcpIiB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiPjwvcmVjdD4KICA8L2c+Cjwvc3ZnPg=="
+                            alt="">
+                        <span>Current owner</span>
+                    </div>
+
+                    <div class="">
+                        <i class="fa-regular fa-heart px-4"> <span class="p-1">2</span></i>
+                        <i class="fa-solid fa-arrow-up-from-bracket px-4"><span class="p-1">Share</span></i>
+                        <i class="fa-solid fa-arrows-rotate"><span class="p-1">Refresh</span></i>
+                    </div>
                     <hr>
-                    <h6 class="card-subtitle mb-2 text-muted">Refresh Metadata</h6>
-                  </div>
-                
-            </div>
-        </div>
-
-<!-- ************************************************************* -->
-          <div class="col-4">
-            <span>Bored Ape Yatch Club</span>
-            <h2>BoredApeYachtClub #4312</h2>
-            <span>Royalties</span>
-
-            <div class="mt-4 mb-5">
-                <img class="rounded-circle" style="width: 45px;" src="https://assets.raribleuserdata.com/prod/v1/image/t_avatar_big/aHR0cHM6Ly9pcGZzLmlvL2lwZnMvUW1hUkNra0U5dmFGN3NlRlNVREJrSjJMU2tMTG95TW9QMkY4cXQ1NHVyUFZRNg==" alt="">
-                <span>   Neon Bear</span> 
-                <img class="rounded-circle" style="width: 45px; margin-left: 65px;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSIgaWQ9IjEyNTg5MDgxMzkyNDciPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSJyZ2IoMTQ1LCAyNTUsIDApIiBvZmZzZXQ9IjAlIj48L3N0b3A+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9InJnYigwLCAxNDUsIDI1NSkiIG9mZnNldD0iMTAwJSI+PC9zdG9wPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPGcgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlIiBmaWxsPSJ1cmwoIzEyNTg5MDgxMzkyNDcpIiB4PSIwIiB5PSIwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiPjwvcmVjdD4KICA8L2c+Cjwvc3ZnPg==" alt="">
-                <span>Current owner</span>
-            </div>
-            
-            <div class="">
-                <i class="fa-regular fa-heart px-4"> <span class="p-1">2</span></i>
-                <i class="fa-solid fa-arrow-up-from-bracket px-4"><span class="p-1">Share</span></i>
-                <i class="fa-solid fa-arrows-rotate"><span class="p-1">Refresh</span></i>
-            </div>
-            <hr>
-            <div class="card mt-5 rounded-pistartll" style="width: 25rem;">
-                <div class="card-body"">
+                    <div class="card mt-5 rounded-pistartll" style="width: 25rem;">
+                        <div class="card-body" ">
                   
-                  <div class="card bg-secondary">
-                    <span class="p-2">Price</span>
-                    <h5 class="card-title px-2">Not for sale</h5>
+                  <div class="card bg-secondary ">
+                    <span class="p-2 ">Price</span>
+                    <h5 class="card-title px-2 ">Not for sale</h5>
                     
                     
                   </div>
-                  <p class="card-text text-center mt-2">Last sale price 29.99 ETH</p>
-                  <button class="btn btn-light" style="width: 23rem;">Place a bid</button>
+                  <p class="card-text text-center mt-2 ">Last sale price 29.99 ETH</p>
+                  <button class="btn btn-light " style="width: 23rem; ">Place a bid</button>
                 </div>
               </div>
           </div>
@@ -154,52 +158,52 @@
         
       </div>
 
-      <div class="text-center mt-5">
+      <div class="text-center mt-5 ">
       <h3>More from this collection</h3>
       </div>
 
       
-      <div class="row">
-        <div class="col-sm-3" >
-            <div class="card">
-              <div class="card-body">
-                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx" class="card-img-top" alt="">
+      <div class="row ">
+        <div class="col-sm-3 " >
+            <div class="card ">
+              <div class="card-body ">
+                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx " class="card-img-top " alt=" ">
               </div>
             </div>
           </div>
-        <div class="col-sm-3" >
-          <div class="card">
-            <div class="card-body">
-                <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx" class="card-img-top" alt="">
+        <div class="col-sm-3 " >
+          <div class="card ">
+            <div class="card-body ">
+                <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx " class="card-img-top " alt=" ">
               
               </div>
           </div>
         </div>
-        <div class="col-sm-3" >
-            <div class="card">
-              <div class="card-body">
-                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx" class="card-img-top" alt="">
+        <div class="col-sm-3 " >
+            <div class="card ">
+              <div class="card-body ">
+                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx " class="card-img-top " alt=" ">
                   
-                  <h6 class="card-subtitle mb-2 text-muted mt-2">Bored Ape Yatch Club</h6>
-                  <h6 class="card-subtitle mb-2 text-muted">BoredApeYatchClub #12344</h6>
-                  <div class="card bg-secondary">
-                    <span class="p-2">Price</span>
-                    <h6 class="px-2">31.37 ETH</h6>
+                  <h6 class="card-subtitle mb-2 text-muted mt-2 ">Bored Ape Yatch Club</h6>
+                  <h6 class="card-subtitle mb-2 text-muted ">BoredApeYatchClub #12344</h6>
+                  <div class="card bg-secondary ">
+                    <span class="p-2 ">Price</span>
+                    <h6 class="px-2 ">31.37 ETH</h6>
                     
                     
                   </div>
                 </div>
             </div>
           </div>
-          <div class="col-sm-3" >
-            <div class="card">
-              <div class="card-body">
-                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx" class="card-img-top" alt="">
-                  <h6 class="card-subtitle mb-2 text-muted mt-2">Bored Ape Yatch Club</h6>
-                  <h6 class="card-subtitle mb-2 text-muted">BoredApeYatchClub #12344</h6>
-                  <div class="card bg-secondary">
-                    <span class="p-2">Price</span>
-                    <h6 class="px-2">31.37 ETH</h6>
+          <div class="col-sm-3 " >
+            <div class="card ">
+              <div class="card-body ">
+                  <img src="https://assets.raribleuserdata.com/prod/v1/image/t_image_preview/aHR0cHM6Ly9pcGZzLnJhcmlibGV1c2VyZGF0YS5jb20vaXBmcy9RbWNGUG1aU2JWUk5SS3dIUlROUFZ2TDJtM29kOWk2dVZHaGF6ZTRSTmJVeUMx " class="card-img-top " alt=" ">
+                  <h6 class="card-subtitle mb-2 text-muted mt-2 ">Bored Ape Yatch Club</h6>
+                  <h6 class="card-subtitle mb-2 text-muted ">BoredApeYatchClub #12344</h6>
+                  <div class="card bg-secondary ">
+                    <span class="p-2 ">Price</span>
+                    <h6 class="px-2 ">31.37 ETH</h6>
                 </div>
             </div>
           </div>
