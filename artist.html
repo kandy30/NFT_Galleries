@@ -12,6 +12,163 @@
 </head>
 
 <body style="background-color:rgb(25, 28, 31); margin: 0; padding: 25px; font-family: sans-serif;">
+    <header class="container-fluid hidden" ng-controller="myCtrl">
+        <div class="row">
+            <div class="d-flex justify-content-end text-bg-dark" ng-model="myVar">
+                <div class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Connect Wallet</a></div>
+
+                <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-sharp fa-solid fa-user"></i>Register</a></div>
+                <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" href="#!Login"><i class="fa-sharp fa-solid fa-user"></i> Login</a></div>
+                <div class="p-1" ng-show="isLogin"><a class="btn btn-dark"><i class="fa-sharp fa-solid fa-user"></i> Welcome {{ info.name }} to my website!</a></div>
+                <div class="p-1"><a class="btn btn-dark" href="#!Cart"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Cart</a></div>
+            </div>
+        </div>
+
+
+    </header>
+    <nav class="navbar navbar-expand-sm bg-white navbar-light sticky-top">
+        <div class="container-fluid">
+
+            <a class="navbar-brand col-md-4" href="test.html"><img src="./Image/OUG/logo.jpg" height="100" width="100" alt=""></a>
+
+            <div class="collapse navbar-collapse col-md-7" id="mynavbar">
+                <ul class="navbar-nav  d-flex justify-content-between  w3-row-padding">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><b>Explore</b></a>
+                        <ul class="dropdown-menu animate__animated animate__flipInX">
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Connection</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">NFTs</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Users</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Marketplaces</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><b>Create</b></a>
+                        <ul class="dropdown-menu animate__animated animate__flipInX">
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">NFT</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Drops</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Connection</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">Marketplaces</a></li>
+                            <li><a class="dropdown-item animate__animated animate__pulse" href="#">NFT apps</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)"><b>Sell</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)"><b>Drops</b></a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex ms-auto">
+                    <input class="form-control me-2" type="text" placeholder="Search">
+                    <button class="btn btn-custom btn-custom-orange rounded" type="button">Search</button>
+                </form>
+
+            </div>
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        </div>
+    </nav>
+    <!-- The Modal -->
+    <div class="modal" id="myModal" ng-controller="myCtrl">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title">Register Form</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+
+                <div class="modal-body">
+
+                    <div class="login-form border border-2 rounded-3  px-3 py-3  " ng-app="myApp" style="background-color: #f3f3f3;">
+
+                        <form action="" name="myForm" ng-controller="myCtrl">
+                            <div class="form-group mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="myName" ng-model="myName" id="name" required>
+
+                                <span style="color:red" ng-show="myForm.myName.$dirty  && myForm.myName.$invalid)">
+                           
+                            <span ng-show="myForm.myName.$error.required">name is required.</span>
+
+                                </span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" name="username" ng-model="username" id="username" required>
+
+                                <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                            <span ng-show="myForm.username.$error.required">username is required.</span>
+
+                                </span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" ng-model="password" id="password" required>
+                                <span style="color:red" ng-show="myForm.password.$untouched &&  myForm.password.$dirty && myForm.password.$invalid">
+                            <span ng-show="myForm.password.$error.required">password is required.</span>
+                                </span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" ng-minlength="3" name="email" ng-model="email" id="email" required>
+                                <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                            <span ng-show="myForm.email.$error.required">Email is required.</span>
+                                <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                                </span>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="gender">Gender</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" name="gender" class="form-check-input" id="male" value="male" checked>
+                                        <label for="male" class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" name="gender" class="form-check-input" id="female" value="female">
+                                        <label for="female" class="form-check-label">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="address">Address</label>
+                                <input type="address" class="form-control" ng-minlength="3" name="address" ng-model="address" id="address" required>
+                                <span style="color:red" ng-show="myForm.address.$dirty && myForm.address.$invalid">
+                            <span ng-show="myForm.address.$error.required">address is required.</span>
+                                </span>
+                            </div>
+
+                            <button type="submit" name="btn-login" class="btn btn-primary w-100" ng-click="register()" ng-disabled=" myForm.username.$untouched && myForm.username.$invalid ||
+                      myForm.email.$untouched && myForm.email.$invalid ||
+                      myForm.password.$untouched && myForm.password.$invalid || 
+                      myForm.myName.$untouched && myForm.myName.$invalid ||
+                      myForm.address.$untouched && myForm.address.$invalid">Register</button>
+                        </form>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
     <div class="header">
         <div class="avatar"></div>
         <div class="icon">
