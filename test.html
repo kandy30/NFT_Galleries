@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/wallet-adapter@2.0.3/dist/bundle.js"></script>
     <link rel="stylesheet" href="./css/buttonstyle.css">
     <link rel="stylesheet" href="./css/cart.css">
     <style>
@@ -137,13 +138,18 @@
             opacity: 1;
         }
     </style>
+    <Script>
+        const connectWallet = () => {
+            window.phantom.solana.connect();
+        }
+    </Script>
 </head>
 
 <body ng-app="myApp">
     <header class="container-fluid hidden" ng-controller="myCtrl">
         <div class="row">
             <div class="d-flex justify-content-end text-bg-dark" ng-model="myVar">
-                <div class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Connect Wallet</a>
+                <div class="p-1" onclick="connectWallet()"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid" ></i> Connect Wallet</a>
                 </div>
 
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-sharp fa-solid fa-user"></i>Register</a></div>
@@ -203,7 +209,7 @@
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
         <span class="navbar-toggler-icon"></span>
-      </button>
+</button>
         </div>
     </nav>
     <!-- The Modal -->
