@@ -24,6 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    
     <link rel="stylesheet" href="./css/buttonstyle.css">
     <link rel="stylesheet" href="./css/cart.css">
     <style>
@@ -140,11 +141,37 @@
 </head>
 
 <body ng-app="myApp">
+
+    <script>
+        let publickey;
+
+        //1:auto connect
+        // (async () => {
+            //     await window.phantom.solana.connect();
+            // publickey = window.phantom.solana.publicKey.toBase58();
+            //console.log("publickey")
+        // })();
+
+        //Manual connect
+        const connectWallet = async () => {
+            await window.phantom.solana.connect();
+            publickey = window.phantom.solana.publicKey.toBase58();
+            console.log(publickey);
+
+        }
+
+        //
+        const PRI_KEY = "a2HdaW2svFkcQD1h"
+
+    </script>
+
+
+
     <header class="container-fluid hidden" ng-controller="myCtrl">
         <div class="row">
             <div class="d-flex justify-content-end text-bg-dark" ng-model="myVar">
-                <div class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Connect Wallet</a>
-                </div>
+                <button onclick="connectWallet()" class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Connect Wallet</a>
+                </button>
 
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-sharp fa-solid fa-user"></i>Register</a></div>
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" href="#!Login"><i class="fa-sharp fa-solid fa-user"></i> Login</a></div>
