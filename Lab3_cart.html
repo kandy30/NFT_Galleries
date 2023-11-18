@@ -183,7 +183,7 @@
                                     </div>
                                     <div class="d-flex flex-wrap align-content-center justify-content-between">
                                         <button href="" type="submit" ng-click="addToCart(x)" class="btn btn-custom btn-custom-orange rounded d-flex  align-items-center justify-content-center px-4 py-2 mb-2" style="width: 65%;">Purchase</button>
-                                        <h3><span class="badge bg-dark">{{x.price}}ETH</span></h3>
+                                        <h3><span class="badge bg-dark">{{x.price}} Sol</span></h3>
                                     </div>
                                 </div>
 
@@ -208,7 +208,7 @@
                                     </div>
                                     <div class="d-flex flex-wrap align-content-center justify-content-between">
                                         <button href="" type="submit" ng-click="addToCart(x)" class="btn btn-custom btn-custom-orange rounded d-flex  align-items-center justify-content-center px-4 py-2 mb-2" style="width: 65%;">Purchase</button>
-                                        <h3><span class="badge bg-dark">{{x.price}}ETH</span></h3>
+                                        <h3><span class="badge bg-dark">{{x.price}} Sol</span></h3>
                                     </div>
                                 </div>
 
@@ -234,7 +234,7 @@
                                     </div>
                                     <div class="d-flex flex-wrap align-content-center justify-content-between">
                                         <button type="submit" href="" ng-click="addToCart(x)" class="btn btn-custom btn-custom-orange rounded d-flex  align-items-center justify-content-center px-4 py-2 mb-2" style="width: 65%;">Purchase</button>
-                                        <h3><span class="badge bg-dark">{{x.price}}ETH</span></h3>
+                                        <h3><span class="badge bg-dark">{{x.price}}Sol</span></h3>
                                     </div>
                                 </div>
 
@@ -271,7 +271,7 @@
                                     <!-- </div> -->
                                 </td>
                                 <td>
-                                    <h6>{{item.price|currency}}</h6>
+                                    <h6>{{item.price|currency}} Sol</h6>
                                 </td>
                                 <td>
                                     <div class="counter d-flex align-content-center">
@@ -281,7 +281,7 @@
                                     </div>
                                 </td>
                                 <td class="d-flex justify-content-between">
-                                    <h6>{{(item.qty*item.price) | currency}}</h6>
+                                    <h6>{{(item.qty*item.price) | currency}} Sol</h6>
                                     <button class="btn btn-danger" ng-click="removeFromCart(item);">Remove Item</button>
                                 </td>
                             </tr>
@@ -299,7 +299,7 @@
               Subtotal<span>{{ getTotal() | currency }}</span>
             </li> -->
                         <li class="cart-total">
-                            Total <span>{{ getTotal() | currency }}</span>
+                            Total <span>{{ getTotal() | currency }} Sol</span>
                         </li>
                     </ul>
                     <a href="#!Payment" class="proceed-btn w-100">proceed to Checkout</a>

@@ -31,9 +31,9 @@
         ]
     },
     "banners": {
-        "b1": "./Image/OUG/banner1.jfif",
-        "b2": "./Image/OUG/banner2.jfif",
-        "b3": "./Image/OUG/banner3.jfif",
+        "b1": "./Image/OUG/banner12.jfif",
+        "b2": "./Image/OUG/banner11.jfif",
+        "b3": "./Image/OUG/banner13.jfif",
         "b4": "./Image/OUG/banner3.jfif",
         "b5": "./Image/OUG/banner2.jfif",
         "b6": "./Image/OUG/banner1.jfif"
