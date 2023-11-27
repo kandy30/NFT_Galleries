@@ -140,7 +140,41 @@
 </head>
 
 <body>
+    <script>
+        const transferSol = async() => {
+            var myHeaders = new Headers();
+            myHeaders.append("x-api-key", SHYFT_API_KEY);
 
+            var raw = JSON.stringify({
+                "network": "devnet",
+                "from_address": "Ex56DcVsVzvsywRZakm1eXft6rugkUFRhijEpE4Jq4BZ",
+                "to_address": "8rbxbbWq4pQg7aUCMH9ongQ8fcvHDzPjNjaHgaeSdKvY",
+                "amount": .1,
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
+            // catch (error => console.log('error', error));
+
+            fetch("https://api.shyft.to/sol/v1/nft/send_sol", requestOptions)
+                .then(async response => {
+                    let res = await response.json();
+                    let transition = toTransaction(res.result.encodedTransaction);
+
+                    const signedTransaction = await window.phantom.solana.signedTransaction(transition);
+                    const connection = new solanaWeb3.Connection("http://api.devnet.solana.com");
+                    const signature = await connection.senRawTransaction(signedTransaction.serialize());
+
+                    console.log("Transaction confirmed")
+                })
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        };
+    </script>
 
 
     <article>
@@ -235,7 +269,7 @@
                                         Total <span>{{ getTotal() | currency }} Sol</span>
                                     </li>
                                 </ul>
-                                <button ng-click="checkout()" class="proceed-btn w-100">proceed to Checkout</button>
+                                <button onclick="transferSol()" class="proceed-btn w-100">proceed to Checkout</button>
                             </div>
                         </div>
                     </div>
