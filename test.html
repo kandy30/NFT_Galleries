@@ -24,9 +24,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
-    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js" ></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
     <link rel="stylesheet" href="./css/buttonstyle.css">
     <link rel="stylesheet" href="./css/cart.css">
+    <script src="
+https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
+"></script>
+
     <style>
         body {
             padding: 0;
@@ -142,14 +146,14 @@
 
 <body ng-app="myApp">
 
-    <script>
+    <!-- <script>
         let publickey;
 
         //1:auto connect
         // (async () => {
-            //     await window.phantom.solana.connect();
-            // publickey = window.phantom.solana.publicKey.toBase58();
-            //console.log("publickey")
+        //     await window.phantom.solana.connect();
+        // publickey = window.phantom.solana.publicKey.toBase58();
+        //console.log("publickey")
         // })();
 
         //Manual connect
@@ -160,17 +164,18 @@
 
         }
 
-        //
-        const PRI_KEY = "a2HdaW2svFkcQD1h"
+        
+        // const PRIV_KEY = "a2HdaW2svFkcQD1h"
+        const PRIV_KEY = "8rzJ3PSzlmzP7b49"
 
         const toTransaction = (encodedTransaction) => solanaWeb3.Transaction.from(Uint8Array.from(atob(encodedTransaction), c => c.charCodeAt(0)));
 
         const mintNft = async () => {
             var myHeaders = new Headers();
-            myHeaders.append("x-api-key", PRI_KEY);
+            myHeaders.append("x-api-key", PRIV_KEY);
 
             const fileInput = document.querySelector("#fileInput");
-            console.log(fileInput.files[0]);
+            // console.log(fileInput.files[0]);
 
             var formdata = new FormData();
             formdata.append("network", "devnet");
@@ -183,45 +188,110 @@
             formdata.append("max_supply", "1");
             formdata.append("royalty", "5");
             formdata.append("file", fileInput.files[0]);
-            formdata.append("data", fileInput.files[0] );
+            formdata.append("data", fileInput.files[0]);
             formdata.append("nft_receiver", publickey);
             formdata.append('service_charge', '{ "receiver": "499qpPLdqgvVeGvvNjsWi27QHpC8GPkPfuL5Cn2DtZJe",  "token": "DjMA5cCK95X333t7SgkpsG5vC9wMk7u9JV4w8qipvFE8",  "amount": 0.01}');
 
             var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: formdata,
-            redirect: 'follow'
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
             };
 
-             fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
-            .then(async response => {
-                let res = await response.json();
-                let transition = toTransaction(res.result.encoded_transaction);
-                window.phantom.solana.sighTransaction(transition);
-            })
-            // fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
-            // .then(response => console.log(response.text()))
-            // .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-                    }
+            fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
+                .then(async response => {
+                    let res = await response.json();
+                    let transition = toTransaction(res.result.encoded_transaction);
 
-    </script>
+
+                    // window.phantom.solana.signTransaction(transaction);
+
+                    const signedTransaction = await window.phantom.solana.signTransaction(transaction);
+                    const connection = new solanaWeb3.Connection("https://api.devnet.solana.com");
+                    const signature = await connection.sendRawTransaction(signedTransaction.serialize());
+                })
+                // fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
+                // .then(response => console.log(response.text()))
+                // .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+
+        // ====================================
+
+        const PRIV_KEY_2 = "3dAg59PK6zFLzXvhoC8ydAawbTBRTNoyZKt4Zr7QKTtiEySbn6TZkjMCBbdLPuejLz2djXhGcpFBnqfT3PPi2LJZ";
+
+        const mintNftPriv = async () => {
+            var myHeaders = new Headers();
+            myHeaders.append("x-api-key", PRIV_KEY);
+
+            const fileInput = document.querySelector("#fileInput");
+            // console.log(fileInput.files[0]);
+
+            var formdata = new FormData();
+            formdata.append("network", "devnet");
+            formdata.append("private_key", PRIV_KEY_2);
+            formdata.append("name", "Galerry NFT");
+            formdata.append("symbol", "SOL");
+            formdata.append("description", "Blockchain is fuking easy");
+            formdata.append("attributes", '[{"trait_type":"dev power","value":"over 900"}]');
+            formdata.append("external_url", "https://shyft.to");
+            formdata.append("max_supply", "1");
+            formdata.append("royalty", "5");
+            formdata.append("file", fileInput.files[0]);
+            formdata.append("data", fileInput.files[0]);
+            formdata.append("nft_receiver", publickey);
+            formdata.append('service_charge', '{ "receiver": "499qpPLdqgvVeGvvNjsWi27QHpC8GPkPfuL5Cn2DtZJe",  "token": "DjMA5cCK95X333t7SgkpsG5vC9wMk7u9JV4w8qipvFE8",  "amount": 0.01}');
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
+
+            fetch("https://api.shyft.to/sol/v1/nft/create", requestOptions)
+                .then(async response => {
+                    // let res = await response.json();
+                    // let transition = toTransaction(res.result.encoded_transaction);
+
+
+                    // // window.phantom.solana.signTransaction(transaction);
+
+                    // const signedTransaction = await window.phantom.solana.signTransaction(transaction);
+                    // const connection = new solanaWeb3.Connection("https://api.devnet.solana.com");
+                    // const signature = await connection.sendRawTransaction(signedTransaction.serialize());
+                })
+                // fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
+                // .then(response => console.log(response.text()))
+                // .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+
+    </script> -->
 
 
 
     <header class="container-fluid hidden" ng-controller="myCtrl">
         <div class="row">
             <div class="d-flex justify-content-end text-bg-dark" ng-model="myVar">
-                <button onclick="connectWallet()" class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Connect Wallet</a>
+                <button onclick="connectWallet()" class="p-1"><a class="btn btn-dark" href=""><i
+                            class="fa-sharp fa-solid"></i> Connect Wallet</a>
                 </button>
-                <button onclick="mintNft()" class="p-1"><a class="btn btn-dark" href=""><i class="fa-sharp fa-solid"></i> Mint NFT</a>
+                <button hidden onclick="mintNft()" class="p-1"><a class="btn btn-dark" href=""><i
+                            class="fa-sharp fa-solid"></i> Mint NFT</a>
                 </button>
-                <input type="file" id="fileInput"/>
+                <button hidden onclick="mintNftPriv()" class="p-1"><a class="btn btn-dark" href=""><i
+                    class="fa-sharp fa-solid"></i> Mint NFT priv</a>
+        </button>
+                <input hidden type="file" id="fileInput" />
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-sharp fa-solid fa-user"></i>Register</a></div>
-                <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" href="#!Login"><i class="fa-sharp fa-solid fa-user"></i> Login</a></div>
-                <div class="p-1" ng-show="isLogin"><a class="btn btn-dark"><i class="fa-sharp fa-solid fa-user"></i> Welcome {{ info.name }} to my website!</a></div>
-                <div class="p-1"><a class="btn btn-dark" href="#!Cart"><i class="fa-sharp fa-solid fa-cart-shopping"></i> Cart</a></div>
+                <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" href="#!Login"><i
+                            class="fa-sharp fa-solid fa-user"></i> Login</a></div>
+                <div class="p-1" ng-show="isLogin"><a class="btn btn-dark"><i class="fa-sharp fa-solid fa-user"></i>
+                        Welcome {{ info.name }} to my website!</a></div>
+                <div class="p-1"><a class="btn btn-dark" href="#!Cart"><i
+                            class="fa-sharp fa-solid fa-cart-shopping"></i> Cart</a></div>
             </div>
         </div>
 
@@ -274,8 +344,8 @@
 
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
     </nav>
     <!-- The Modal -->
@@ -300,8 +370,8 @@
                                 <input type="text" class="form-control" name="myName" ng-model="myName" id="name" required>
 
                                 <span style="color:red" ng-show="myForm.myName.$dirty  && myForm.myName.$invalid)">
-                           
-                            <span ng-show="myForm.myName.$error.required">name is required.</span>
+
+                                    <span ng-show="myForm.myName.$error.required">name is required.</span>
 
                                 </span>
                             </div>
@@ -311,7 +381,7 @@
                                 <input type="text" class="form-control" name="username" ng-model="username" id="username" required>
 
                                 <span style="color:red" ng-show="myForm.username.$dirty && myForm.username.$invalid">
-                            <span ng-show="myForm.username.$error.required">username is required.</span>
+                                    <span ng-show="myForm.username.$error.required">username is required.</span>
 
                                 </span>
                             </div>
@@ -320,7 +390,7 @@
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" name="password" ng-model="password" id="password" required>
                                 <span style="color:red" ng-show="myForm.password.$untouched &&  myForm.password.$dirty && myForm.password.$invalid">
-                            <span ng-show="myForm.password.$error.required">password is required.</span>
+                                    <span ng-show="myForm.password.$error.required">password is required.</span>
                                 </span>
                             </div>
 
@@ -328,7 +398,7 @@
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" ng-minlength="3" name="email" ng-model="email" id="email" required>
                                 <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-                            <span ng-show="myForm.email.$error.required">Email is required.</span>
+                                    <span ng-show="myForm.email.$error.required">Email is required.</span>
                                 <span ng-show="myForm.email.$error.email">Invalid email address.</span>
                                 </span>
                             </div>
@@ -351,7 +421,7 @@
                                 <label for="address">Address</label>
                                 <input type="address" class="form-control" ng-minlength="3" name="address" ng-model="address" id="address" required>
                                 <span style="color:red" ng-show="myForm.address.$dirty && myForm.address.$invalid">
-                            <span ng-show="myForm.address.$error.required">address is required.</span>
+                                    <span ng-show="myForm.address.$error.required">address is required.</span>
                                 </span>
                             </div>
 
@@ -399,12 +469,14 @@
                                             <div class="container d-flex justify-content-start " style="margin-left: 0px; ">
                                                 <div class="row d-flex align-items-center p-2 ">
                                                     <div href="javascript:void(0) ">
-                                                        <h4 style="padding-right: 60px; "><strong>Về Công Ty</strong></h4>
+                                                        <h4 style="padding-right: 60px; "><strong>Về Công Ty</strong>
+                                                        </h4>
                                                     </div>
                                                     <button class="navbar-toggler " style="padding-left: 60px; position: absolute; top: 17px; " type="button " data-bs-toggle="collapse " data-bs-target="#mynavbar2 ">
-                                      
-                                      <i class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
-                                  </button>
+
+                                                        <i
+                                                            class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
@@ -412,13 +484,16 @@
                                             <div class="collapse navbar-collapse " id="mynavbar2 ">
                                                 <ul class="navbar-nav me-auto d-flex flex-column " style="margin-left: 0; height: 150px; ">
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Dứa Tuyển Dụng</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Dứa Tuyển
+                                                            Dụng</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Liên Hệ Nhượng Quyền</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Liên Hệ Nhượng
+                                                            Quyền</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Về OU Gallaries</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Về OU
+                                                            Gallaries</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -440,9 +515,10 @@
                                                         <h4 style="padding-right: 60px; "><strong>Hỗ Trợ</strong></h4>
                                                     </div>
                                                     <button class="navbar-toggler " style="padding-left: 60px; position: absolute; top: 17px; " type="button " data-bs-toggle="collapse " data-bs-target="#mynavbar3 ">
-                                      
-                                      <i class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
-                                  </button>
+
+                                                        <i
+                                                            class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
@@ -453,13 +529,16 @@
                                                         <a class="nav-link " href="javascript:void(0) ">FAQs</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Bảo Mật Thông Tin</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Bảo Mật Thông
+                                                            Tin</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Chính Sách Chung</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Chính Sách
+                                                            Chung</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Tra Cứu Đơn Hàng</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Tra Cứu Đơn
+                                                            Hàng</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -481,9 +560,10 @@
                                                         <h4 style="padding-right: 60px; "><strong>Liên Hệ</strong></h4>
                                                     </div>
                                                     <button class="navbar-toggler " style="padding-left: 60px; position: absolute; top: 17px; " type="button " data-bs-toggle="collapse " data-bs-target="#mynavbar4 ">
-                                      
-                                      <i class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
-                                  </button>
+
+                                                        <i
+                                                            class="fa-sharp fa-solid fa-chevron-down d-flex justify-content-end "></i>
+                                                    </button>
                                                 </div>
                                             </div>
 
@@ -500,7 +580,8 @@
                                                         <a class="nav-link " href="javascript:void(0) ">0963429749</a>
                                                     </li>
                                                     <li class="nav-item ">
-                                                        <a class="nav-link " href="javascript:void(0) ">Tra Cứu Đơn Hàng</a>
+                                                        <a class="nav-link " href="javascript:void(0) ">Tra Cứu Đơn
+                                                            Hàng</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -538,9 +619,9 @@
                                         <form class="subscription ">
                                             <input class="add-email " type="email " placeholder="yourEmail@gmail.com ">
                                             <button class="submit-email " type="button ">
-                          <span class="before-submit ">Send</span>
-                          <span class="after-submit ">Cảm Ơn Đã Đăng Ký</span>
-                        </button>
+                                                <span class="before-submit ">Send</span>
+                                                <span class="after-submit ">Cảm Ơn Đã Đăng Ký</span>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -644,6 +725,7 @@
 
     //   });
 </script>
+<script src="js2/connectWallet.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/cart.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

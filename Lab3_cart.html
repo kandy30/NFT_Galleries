@@ -252,9 +252,9 @@
                     <table class="table">
                         <thead class="table-dark">
                             <tr>
-                                <th scope="col" class="text-white">Product</th>
+                                <th scope="col" class="text-white">Art</th>
                                 <th scope="col" class="text-white">Price</th>
-                                <th scope="col" class="text-white">Quantity</th>
+                                <!-- <th scope="col" class="text-white">Quantity</th> -->
                                 <th scope="col" class="text-white">Total</th>
                             </tr>
                         </thead>
@@ -273,13 +273,13 @@
                                 <td>
                                     <h6>{{item.price|currency}} Sol</h6>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <div class="counter d-flex align-content-center">
                                         <i ng-click="addToCart(item)" class="fas fa-angle-up btn border border-2"></i>
                                         <input class="input-number rounded-2 border border-2" value="{{item.qty}}" min="1" max="99999" type="text">
                                         <i ng-click="minusItem(item)" class="fas fa-angle-down btn border border-2"></i>
                                     </div>
-                                </td>
+                                </td> -->
                                 <td class="d-flex justify-content-between">
                                     <h6>{{(item.qty*item.price) | currency}} Sol</h6>
                                     <button class="btn btn-danger" ng-click="removeFromCart(item);">Remove Item</button>
@@ -302,7 +302,7 @@
                             Total <span>{{ getTotal() | currency }} Sol</span>
                         </li>
                     </ul>
-                    <a href="#!Payment" class="proceed-btn w-100">proceed to Checkout</a>
+                    <a href="Lab3_payment.html" class="proceed-btn w-100">proceed to Checkout</a>
                 </div>
             </div>
         </section>
