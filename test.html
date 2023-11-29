@@ -157,20 +157,24 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
         // })();
 
         //Manual connect
-        const connectWallet = async () => {
+        const connectWallet = async() => {
             await window.phantom.solana.connect();
             publickey = window.phantom.solana.publicKey.toBase58();
             console.log(publickey);
-
         }
 
+<<<<<<< HEAD
         
         // const PRIV_KEY = "a2HdaW2svFkcQD1h"
         const PRIV_KEY = "8rzJ3PSzlmzP7b49"
+=======
+        //
+        const PRI_KEY = "_0_bHESNgEbm5U68"
+>>>>>>> ed4fe31df21eeeb3e23b7f66e3b543c694b6ac76
 
         const toTransaction = (encodedTransaction) => solanaWeb3.Transaction.from(Uint8Array.from(atob(encodedTransaction), c => c.charCodeAt(0)));
 
-        const mintNft = async () => {
+        const mintNft = async() => {
             var myHeaders = new Headers();
             myHeaders.append("x-api-key", PRIV_KEY);
 
@@ -182,7 +186,7 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
             formdata.append("wallet", publickey);
             formdata.append("name", "Galerry NFT");
             formdata.append("symbol", "SOL");
-            formdata.append("description", "Blockchain is fuking easy");
+            formdata.append("description", "OU Gallaries ");
             formdata.append("attributes", '[{"trait_type":"dev power","value":"over 900"}]');
             formdata.append("external_url", "https://shyft.to");
             formdata.append("max_supply", "1");
@@ -198,10 +202,12 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
                 body: formdata,
                 redirect: 'follow'
             };
+            // catch (error => console.log('error', error));
 
             fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
                 .then(async response => {
                     let res = await response.json();
+<<<<<<< HEAD
                     let transition = toTransaction(res.result.encoded_transaction);
 
 
@@ -243,12 +249,41 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
             formdata.append("nft_receiver", publickey);
             formdata.append('service_charge', '{ "receiver": "499qpPLdqgvVeGvvNjsWi27QHpC8GPkPfuL5Cn2DtZJe",  "token": "DjMA5cCK95X333t7SgkpsG5vC9wMk7u9JV4w8qipvFE8",  "amount": 0.01}');
 
+=======
+                    let transition = toTransaction(res.result.encodedTransaction);
+
+                    const signedTransaction = await window.phantom.solana.signedTransaction(transition);
+                    const connection = new solanaWeb3.Connection("http://api.devnet.solana.com");
+                    const signature = await connection.senRawTransaction(signedTransaction.serialize());
+
+                    console.log("Transaction confirmed")
+                }).catch(error => console.log('error', error));
+            // fetch("https://api.shyft.to/sol/v1/nft/create_detach", requestOptions)
+            //     .then(response => console.log(response.text()))
+            //     .then(result => console.log(result))
+            //     .catch(error => console.log('error', error));
+        };
+        //
+        const PRIV_KEY_WALLET = "3wV4M3okRKrUHmujiJBUYkDno5iYhTJ72gUsMUhHZnk5swk71xddZLM35L1BceksarZFkqkHgrmbvHfU8uqTDHfd"
+        const mintNftPriv = async() => {
+            var myHeaders = new Headers();
+            myHeaders.append("x-api-key", PRI_KEY);
+
+
+            var raw = JSON.stringify({
+                "network": "devnet",
+                "from_address": "Ex56DcVsVzvsywRZakm1eXft6rugkUFRhijEpE4Jq4BZ",
+                "to_address": "8rbxbbWq4pQg7aUCMH9ongQ8fcvHDzPjNjaHgaeSdKvY",
+                "amount": .1,
+            });
+>>>>>>> ed4fe31df21eeeb3e23b7f66e3b543c694b6ac76
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
                 body: formdata,
                 redirect: 'follow'
             };
+<<<<<<< HEAD
 
             fetch("https://api.shyft.to/sol/v1/nft/create", requestOptions)
                 .then(async response => {
@@ -269,6 +304,23 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
         }
 
     </script> -->
+=======
+            // catch (error => console.log('error', error));
+
+            fetch("https://api.shyft.to/sol/v1/wallet/send_sol", requestOptions)
+                .then(async response => {
+                    let res = await response.json();
+                    let transition = toTransaction(res.result.encodedTransaction);
+
+                    const signedTransaction = await window.phantom.solana.signedTransaction(transition);
+                    const connection = new solanaWeb3.Connection("http://api.devnet.solana.com");
+                    const signature = await connection.senRawTransaction(signedTransaction.serialize());
+
+                    console.log("Transaction confirmed")
+                }).catch(error => console.log('error', error));
+        };
+    </script>
+>>>>>>> ed4fe31df21eeeb3e23b7f66e3b543c694b6ac76
 
 
 
@@ -281,10 +333,15 @@ https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js
                 <button hidden onclick="mintNft()" class="p-1"><a class="btn btn-dark" href=""><i
                             class="fa-sharp fa-solid"></i> Mint NFT</a>
                 </button>
+<<<<<<< HEAD
                 <button hidden onclick="mintNftPriv()" class="p-1"><a class="btn btn-dark" href=""><i
                     class="fa-sharp fa-solid"></i> Mint NFT priv</a>
         </button>
                 <input hidden type="file" id="fileInput" />
+=======
+                <button onclick="mintNftPriv()">gg</button>
+                <input type="file" id="fileInput" />
+>>>>>>> ed4fe31df21eeeb3e23b7f66e3b543c694b6ac76
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"><i class="fa-sharp fa-solid fa-user"></i>Register</a></div>
                 <div class="p-1" ng-show="!isLogin"><a class="btn btn-dark" href="#!Login"><i
                             class="fa-sharp fa-solid fa-user"></i> Login</a></div>
